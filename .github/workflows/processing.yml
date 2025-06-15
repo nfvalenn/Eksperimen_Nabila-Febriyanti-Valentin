@@ -9,7 +9,7 @@ on:
     branches:
       - main
 
-  workflow_dispatch: 
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -40,6 +40,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add preprocessing/mental_health_cleaned.csv
+          git add -A preprocessing/mental_health_cleaned.csv
           git commit -m "Auto-update cleaned dataset [skip ci]" || echo "No changes to commit"
           git push
