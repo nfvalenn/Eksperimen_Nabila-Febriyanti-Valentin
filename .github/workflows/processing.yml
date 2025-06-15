@@ -3,14 +3,8 @@ name: Dataset Preprocessing Automation
 on:
   push:
     paths:
-      - 'preprocessing/**'
-      - 'mental_health_raw.csv'
-      - '.github/workflows/preprocessing.yml'
-    branches:
-      - main
-
-permissions:
-  contents: write
+       - 'automate_*.py'
+       - '*.csv'
 
 jobs:
   preprocess:
