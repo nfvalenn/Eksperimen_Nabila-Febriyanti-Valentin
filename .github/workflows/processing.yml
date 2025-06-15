@@ -4,10 +4,13 @@ on:
   push:
     paths:
       - 'preprocessing/**'
-      - 'spotify_raw.csv'
+      - 'mental_health_raw.csv'
       - '.github/workflows/preprocessing.yml'
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   preprocess:
@@ -29,12 +32,12 @@ jobs:
 
       - name: Run preprocessing script
         run: |
-          python preprocessing/automate_NamaAnda.py
+          python preprocessing/automate_Nabila-Febriyanti-Valentin.py
 
       - name: Commit and push cleaned dataset
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add preprocessing/spotify_cleaned.csv
+          git add preprocessing/mental_health_cleaned.csv
           git commit -m "Auto-update cleaned dataset [skip ci]" || echo "No changes to commit"
           git push
